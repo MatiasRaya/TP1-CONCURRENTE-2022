@@ -1,8 +1,14 @@
 package task;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class CreadorDeDatos implements Runnable{
 
-    public CreadorDeDatos() {
+    private ArrayList<Dato> bufferInicial;
+
+    public CreadorDeDatos(ArrayList<Dato> bufferInicial) {
+        this.bufferInicial = (ArrayList) bufferInicial.clone();
     }
 
     @Override
