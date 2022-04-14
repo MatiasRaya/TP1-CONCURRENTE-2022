@@ -1,0 +1,3 @@
+	Tamaño del buffer inial:	0	Tamaño del buffer de validados:	0
+=========================================================================
+
