@@ -1,5 +1,6 @@
 package task;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
 
@@ -19,6 +20,8 @@ public class Dato {
         semRevisar = new Semaphore(2, true);
         semConsumir = new Semaphore(1, true);
         llaveLectura = new Object();
+        ArrayList<String> revisores = new ArrayList<>();    //Lista con los nombres de los revisores que ya revisaron el Dato
+        
     }
 
     public void escribir() throws InterruptedException {
