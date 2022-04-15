@@ -18,11 +18,21 @@ public class Main {
         ArrayList<RevisoresDeDatos> revisoresDeDatos = new ArrayList<>(2);
         ArrayList<ConsumidoresDeDatos> consumidoresDeDatos = new ArrayList<>(2);
 
-        crearCreadores(listaDeCreador, bufferInicial);
+        Thread thread[] = new Thread[4];
+        for(int i=0; i<4; i++){
+            thread[i]= new Thread(new CreadorDeDatos(bufferInicial));
+        }
 
-        iniciarCreadores(listaDeCreador);
+        for(int i=0; i<4; i++){
+            thread[i].start();
+        }
 
-        logger(bufferInicial, bufferDeValidados);
+
+        //crearCreadores(listaDeCreador, bufferInicial);
+        //
+        //iniciarCreadores(listaDeCreador);
+        //
+        //logger(bufferInicial, bufferDeValidados);
     }
 
     public static void crearCreadores (ArrayList<CreadorDeDatos> listaDeCreador, ArrayList<Dato> bufferInicial) {
