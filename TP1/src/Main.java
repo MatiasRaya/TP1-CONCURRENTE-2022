@@ -6,7 +6,10 @@ import task.RevisoresDeDatos;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -44,9 +47,13 @@ public class Main {
         try (FileWriter file = new FileWriter(".\\Data\\log.txt"); PrintWriter pw = new PrintWriter(file);) {
             do {
                 TimeUnit.SECONDS.sleep(2);
+                pw.println("\t" + LocalDate.now() + " " + LocalTime.now() + "\t");
                 pw.println("\tTamaño del buffer inial:\t" + bufferInicial.size() +
                         "\tTamaño del buffer de validados:\t" + bufferDeValidados.size() );
                 pw.println("=========================================================================\n");
+                for(int i= 0;i< bufferInicial.size(); i++){
+                    pw.println(bufferInicial.get(i) + " " + i );
+                }
             } while (!finalizado(bufferInicial,bufferDeValidados));
         }
         catch (IOException | InterruptedException e) {
