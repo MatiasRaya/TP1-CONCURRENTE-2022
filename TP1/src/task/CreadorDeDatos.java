@@ -1,7 +1,6 @@
 package task;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class CreadorDeDatos implements Runnable{
 
@@ -9,18 +8,14 @@ public class CreadorDeDatos implements Runnable{
     int lenght;
 
     public CreadorDeDatos(ArrayList<Dato> bufferInicial) {
-        //this.bufferInicial = (ArrayList) bufferInicial.clone();
-        int lenght = bufferInicial.size();
+<<<<<<< HEAD
+=======
+        this.bufferInicial = (ArrayList<Dato>) bufferInicial.clone();
+>>>>>>> 62a8b1e625e6c32d37ce595abcdd1b9e2c8a6e76
     }
 
     @Override
     public void run() {
-        new Dato();
-        
-        if(lenght <100){
-            
-        }
-
-
+        bufferInicial.add(0, new Dato("E"));
     }
 }

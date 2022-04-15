@@ -7,14 +7,17 @@ import java.util.concurrent.Semaphore;
 public class Dato {
 
     private int reviews;
+    private String nombre;
     private Boolean validado;
     private Semaphore semCrear;
     private Semaphore semRevisar;
     private Semaphore semConsumir;
     private final Object llaveLectura;
 
-    public Dato() {
+
+    public Dato(String nombre) {
         reviews = 0;
+        this.nombre = nombre;
         validado = false;
         semCrear = new Semaphore(1, true);
         semRevisar = new Semaphore(2, true);
@@ -25,6 +28,7 @@ public class Dato {
     }
 
     public void escribir() throws InterruptedException {
+
     }
 
     public void revisar() throws InterruptedException {
